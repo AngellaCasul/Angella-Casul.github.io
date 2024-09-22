@@ -78,32 +78,45 @@
 
     <py-script>
         from pyscript import Element
-
+    
         def calculate_grade(event):
             prelim = float(Element("prelim").value)
             passing_grade = 75
+            deans_lister_grade = 90
             prelimpercent = 0.20
             midtermpercent = 0.30
             finalpercent = 0.50
-        
-            # Solution to calculate the required grades
+    
+            # Solution to calculate the required grades for passing and Dean's Lister
             current_total = prelim * prelimpercent
-            required_total = passing_grade - current_total
+            required_total_75 = passing_grade - current_total
+            required_total_90 = deans_lister_grade - current_total
             midfinalaverage = midtermpercent + finalpercent
-            required_passing_grade = required_total / midfinalaverage
-
+    
+            # Calculate required midterms and finals grades for passing (75%) and Dean's Lister (90%)
+            required_passing_grade = round(required_total_75 / midfinalaverage, 2)
+            required_deans_lister_grade = round(required_total_90 / midfinalaverage, 2)
+    
             # Prepare the result text for required midterms and finals grade
             if prelim > 100 or prelim < 0:
-                result_text = "Invalid input. Prelim grade should be between 0-100"
+                result_text = "Invalid input. Prelim grade should be between 0-100."
             elif prelim >= 90:
-                result_text = f"-To pass, you need atleast {required_passing_grade:.2f}% average in midterms and finals. Congratulations! You are qualified for Dean's Lister."
+                result_text = (
+                    f"-To pass, you need at least {required_passing_grade:.2f}% average in midterms and finals. "
+                    f"Congratulations! You are qualified for Dean's Lister."
+                )
             else:
-                result_text = f"-To pass, you need atleast {required_passing_grade:.2f}% average in midterms and finals. You are not qualified for Dean's Lister. You must have a grade higher than {prelim:.2f}%."
-
+                result_text = (
+                    f"-To pass, you need at least {required_passing_grade:.2f}% average in midterms and finals. "
+                    f"You are not qualified for Dean's Lister. "
+                    f"To qualify for Dean's Lister, you need an average of {required_deans_lister_grade:.2f}% in midterms and finals."
+                )
+    
             Element("result").write(result_text)
     
         # Attach the event listener to the button
         Element("calculateBtn").element.onclick = calculate_grade
     </py-script>
+    
 </body>
 </html>
