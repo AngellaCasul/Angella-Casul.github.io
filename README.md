@@ -1,2 +1,3 @@
 # Angella-Casul.github.io
-#To open the website, go to "actions", click pages build and development workflow, then click the link.
+#Index.html is for the Lab requirement #2
+#PrelimExam.html is for the PRELIM EXAM in Fundamentals of Programming Lab
