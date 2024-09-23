@@ -162,16 +162,19 @@
     
          # Prepare result text for prelim grade  
          result_text = f"Your Prelim Grade is: {prelim_grade:.2f}"  
-  
+
          if prelim_grade >= 90:  
             result_text = f"Your Prelim Grade is: {prelim_grade:.2f}. Congratulations! You are qualified for Dean's Lister."  
          else:  
-            result_text = f"Your Prelim Grade is: {prelim_grade:.2f}. You are not qualified for Dean's Lister."  
+            result_text = f"Your Prelim Grade is: {prelim_grade:.2f}. Unfortunately, You are not qualified for Dean's Lister."  
     
          # Add required grades for passing and Dean's Lister  
-         result_text += f" You need an average of {required_midterm_and_final_75:.2f} in midterms and finals to pass (75%)."  
-         result_text += f" You need an average of {required_midterm_and_final_90:.2f} in midterms and finals to qualify for Dean's Lister (90%)."  
+         result_text += f" You need an average of {required_midterm_and_final_75:.2f} in midterms and finals to pass (75%), and"  
+         result_text += f" you need an average of {required_midterm_and_final_90:.2f} in midterms and finals to qualify for Dean's Lister (90%)."  
     
+         if required_midterm_and_final_90 > 100:
+            result_text += " The required grade is above 100%."
+
          Element("result").write(result_text)  
          Element("result").element.style.display = "block"  
     
