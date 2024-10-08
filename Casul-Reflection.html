@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflection</title>
+    <!-- Include PyScript CDN -->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            background-color:rgb(135, 120, 99);
+        }
+        h1 {
+            color:rgb(41, 34, 24);
+            text-shadow: 0 0 5px rgb(250, 242, 232);
+        }
+        h3 {
+            color:burlywood;}
+
+        .styled-paragraph {
+            font-size: 20px;
+            margin: 0 auto;
+            padding: 5px;
+            border-top: solid 4px;
+            border-right: solid 4px;
+            border-bottom: solid 4px;
+            border-left: solid 4px;
+            width: 700px;
+            box-shadow: 0 0 8px antiquewhite;
+            border-color:burlywood;
+            background-color: antiquewhite;
+        }
+        p {
+            color:antiquewhite;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Privacy and Awareness Campaign Reflection</h1>
+    <h3>By: Angella Shaolla G. Casul</h3>
+    <div id="output" class="styled-paragraph"></div>
+    <p>Word Count: 143<br>Date Submitted: 08/10/24</p>
+    <py-script>
+        # Python code to create and display HTML content
+
+        # Define the content of the paragraph
+        paragraph = """
+        Data privacy is a big deal in our digital world, and it's something we all need to think about. Every time we share personal information online, we're taking a risk. 
+        It's important to be mindful of what we’re posting and who we’re sharing it with. We often trust tech companies to protect our data, but recent breaches remind us that this trust can be misplaced. Realizing that our data is valuable makes us reconsider how much we share. Laws about data privacy vary, so understanding our rights is key, and it’s also crucial to talk about the ethical side of data collection. 
+        Ultimately, we need to look out for ourselves and support stronger privacy protections together. By being aware and proactive, we can help create a safer online space for everyone.
+        """
+
+        # Find the div with id 'output' and set its innerHTML to the paragraph text
+        output_element = Element("output")
+        output_element.write(paragraph)
+    </py-script>
+</body>
+</html>
